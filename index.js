@@ -30,6 +30,10 @@ let persons = [
 ]
 
 //routes
+app.get('/', (req, res) => {
+    res.send('<h1>Hello Universe!</h1>')
+  })
+
 //get person list
 app.get('/api/persons', (req, res)=>{
     res.json(persons)
@@ -82,7 +86,7 @@ app.delete('/api/persons/:id', (req, res) => {
     res.json(204).end()
 })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
