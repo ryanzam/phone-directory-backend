@@ -54,13 +54,23 @@ const randomID = () => {
 app.post('/api/persons', (req, res) => {
     const body = req.body
 
-    const person = {
-        name : body.name,
-        number : body.number,
-        id : randomID()
+    if(body.name === undefined || body.number === undefined) {
+        return res.status(400).json({error : "name or number missing"})
+    } else if (persons.map(p=>p.name).includes(body.name)){
+        return res.status(400).json({error: "name must be unique"})
+    } else {
+        const person = {
+            name : body.name,
+            number : body.number,
+            id : randomID()
+        }
+        persons = persons.concat(person)
+        res.json(person)
     }
-    persons = persons.concat(person)
-    res.json(person)
+
+
+
+    
 })
 
 //delete person
