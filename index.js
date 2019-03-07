@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-let person = [
+let persons = [
     {
         name : "Arto Hellas",
         number : "040-123456",
@@ -24,9 +24,23 @@ let person = [
     }
 ]
 
-
+//routes
+//get person list
 app.get('/api/persons', (req, res)=>{
-    res.json(person)
+    res.json(persons)
+})
+
+//get single person
+app.get('/api/persons/:id', (req, res) => {
+    const id = Number(req.params.id)
+    const person = persons.find(person => person.id === id)
+    //if person with id exists, return person
+    if(person) {
+        res.json(person)
+    } //else return 404 status code
+    else {
+        res.status(404).end()
+    }
 })
 
 const PORT = 3001
