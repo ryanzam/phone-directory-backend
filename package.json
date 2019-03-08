@@ -24,7 +24,8 @@
   "homepage": "https://github.com/ryanzam/phone-directory-backend#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.4.17"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
