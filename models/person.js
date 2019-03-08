@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const url = "mongodb+srv://admin:admin@persondatabase-9onky.mongodb.net/test?retryWrites=true"
+const url = "mongodb+srv://admin:<password>@persondatabase-9onky.mongodb.net/test?retryWrites=true"
 
 //mongoose
 mongoose.connect(url, { useNewUrlParser: true })
